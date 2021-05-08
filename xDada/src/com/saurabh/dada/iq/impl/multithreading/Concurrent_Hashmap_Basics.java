@@ -1,4 +1,4 @@
-package com.saurabh.dada.iq.impl;
+package com.saurabh.dada.iq.impl.multithreading;
 
 public class Concurrent_Hashmap_Basics {
 

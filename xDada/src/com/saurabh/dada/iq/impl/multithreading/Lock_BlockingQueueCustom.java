@@ -1,4 +1,4 @@
-package com.saurabh.dada.iq.impl;
+package com.saurabh.dada.iq.impl.multithreading;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -21,14 +21,13 @@ public class XRoughWork {
 
 enum EmpCode {
 
-    
-	   // also implement this method properly
-	   public static EmpCode getEnum(int code) {
-	         
-	         
-	   }
+	// also implement this method properly
+//	public static EmpCode getEnum(int code) {
+//	         
+//	         
+//	   }
 
-	    } 
+}
 
 abstract class Observer{
 	public Subject subject;
