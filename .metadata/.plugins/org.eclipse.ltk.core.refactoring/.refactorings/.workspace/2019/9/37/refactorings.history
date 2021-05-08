@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 3 resources" deleteContents="false" description="Delete 3 resources" element1="/xDada/src/com/saurabh/dada/iq/impl/Concurrent_AtomicInteger.java" element2="/xDada/src/com/saurabh/dada/iq/impl/Concurrent_CopyOnWriteArrayList.java" element3="/xDada/src/com/saurabh/dada/iq/impl/Concurrent_NavigableMap_Example.java" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="3" stamp="1568009432621"/>
+</session>

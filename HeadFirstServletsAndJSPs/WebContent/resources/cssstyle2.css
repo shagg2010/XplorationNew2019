@@ -1,0 +1,66 @@
+body
+{
+background-image:url('/resources/verticalbackground.png');
+background-repeat:repeat-x;
+} 
+.class1 a {font-family:Georgia,serif; font-size:small}
+.class1 a:link {color:forestgreen;text-decoration: none}
+.class1 a:visited {color:seagreen;}
+.class1 a:hover {text-decoration:underline;color:yellowgreen;font-weight:bold;font-size:medium}
+.class1 a:active {color:red;text-decoration: none}
+
+.class2 a {font-family:Georgia,serif; font-size:x-small}
+.class2 a:link {color:forestgreen;text-decoration: none}
+.class2 a:visited {color:seagreen;}
+.class2 a:hover {text-decoration:underline;color:yellowgreen;font-weight:bold;font-size:large}
+.class2 a:active {color:red;text-decoration: none}
+
+table
+{
+width:100%;
+}
+
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 0px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 0px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	border-width: 0px;
+}
+table.hovertable td {
+	border-width: 0px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+	opacity:0.88;
+}
+
+img.floatLeft { 
+    float: left; 
+    margin: 4px; 
+}
+img.floatRight { 
+    float: middle; 
+    margin: 40px; 
+}
+
+img {
+  position: right;
+  clip: rect(30px 165px 100px 30px);
+}
+img:hover
+{
+opacity:0.4;
+filter:alpha(opacity=40); /* For IE8 and earlier */
+}

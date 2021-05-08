@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" version="2.0">
+     <tlib-version>0.1</tlib-version>
+     
+     <uri>CustomTags</uri>
+     <short-name>RandomTags</short-name>
+     
+     <tag>
+     	<description>Random Advice</description>
+     	<name>advice</name>
+     	<tag-class>com.saurabh.java.hfsj.ch09.tag.handlers.AdviceTagHandler</tag-class>
+     	<body-content>empty</body-content>
+     	<attribute>
+     		<name>user</name>
+     		<required>true</required>
+     		<rtexprvalue>true</rtexprvalue>
+     	</attribute>
+     	
+     </tag>
+     
+     <function>
+     	<name>rollIt_2</name>
+     	<function-class>com.saurabh.java.hfsj.ch08.tld.functions.DiceRoller</function-class>
+     	<function-signature>
+     		int rollDice()
+     	</function-signature>
+     </function>
+     
+     <function>
+     	<name>rollItByName_2</name>
+     	<function-class>com.saurabh.java.hfsj.ch08.tld.functions.DiceRoller</function-class>
+     	<function-signature>
+     		java.lang.String rollItByName(java.lang.String)
+     	</function-signature>
+     </function>
+     
+</taglib>
+    

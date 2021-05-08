@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;f&apos; in &apos;com.saurabh.dada.iq.impl.data_structures.FibonacciSeries_Recursive_Dynamic.fibonacciDynamic(...)&apos; to &apos;fibonacci&apos;&#x0D;&#x0A;- Original project: &apos;xDada&apos;&#x0D;&#x0A;- Original element: &apos;com.saurabh.dada.iq.impl.data_structures.FibonacciSeries_Recursive_Dynamic.fibonacciDynamic(int).f&apos;&#x0D;&#x0A;- Renamed element: &apos;f&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;f&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.saurabh.dada.iq.impl.data_structures{FibonacciSeries_Recursive_Dynamic.java[FibonacciSeries_Recursive_Dynamic~fibonacciDynamic~I@f!495!519!499!499!\[I!0!false" name="fibonacci" references="true" stamp="1568786707008" version="1.0"/>
+</session>

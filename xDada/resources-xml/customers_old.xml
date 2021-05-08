@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:customers xmlns:ns2="com.saurabh.xml.jaxb.model" company="Samsung">
+    <customerList>
+        <customer id="10">
+            <age>28</age>
+            <name>Saurabh</name>
+        </customer>
+        <customer id="26">
+            <age>28</age>
+            <name>Priyanka</name>
+        </customer>
+        <customer id="-1">
+            <age>0</age>
+            <name>XYZ</name>
+        </customer>
+    </customerList>
+</ns2:customers>

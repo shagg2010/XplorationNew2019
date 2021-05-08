@@ -1,0 +1,50 @@
+package com.yadas.code.java.ds;
+
+public class BinaryTree_G4GExamples {
+
+	public static void main(String[] args) {
+		basicOperations();
+		
+	}
+
+	private static void basicOperations() {
+		XBinaryTree<String> bt1 = new XBinaryTree<String>();
+		bt1.insert("6");
+		bt1.insert("24");
+		bt1.insert("19");
+		bt1.insert("94");
+		bt1.insert("5");
+		bt1.insert("1");
+		bt1.insert("10");
+		bt1.insert("3");
+		bt1.insert("8");
+		
+		bt1.postOrderTraversal();
+		bt1.preOrderTraversal();
+		bt1.inOrderTraversal();
+		bt1.levelOrderTraversalOrBFSLineByLine();
+		
+		XBinaryTree<Integer> bt2 = new XBinaryTree<Integer>();
+		bt2.insert(3);
+		bt2.insert(2);
+		bt2.insert(4);
+		bt2.insert(1);
+		bt2.insert(3);
+		bt2.insert(5);
+		bt2.levelOrderTraversalOrBFSLineByLine();
+		System.out.println("\nIs Continuous Tree: " + bt2.isContinuousTree());
+		
+		XBinaryTree<Integer> bt3 = new XBinaryTree<Integer>();
+		bt3.insert(3);
+		bt3.insert(2);
+		bt3.insert(4);
+		bt3.insert(1);
+		bt3.insert(3);
+		bt3.insert(5);
+		bt3.insert(8);
+		bt3.levelOrderTraversalOrBFSLineByLine();
+		System.out.println("\nIs Mirror Tree: " + bt3.isMirror());
+		bt3.mirror();
+		
+	}
+}

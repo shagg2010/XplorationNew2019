@@ -1,0 +1,9 @@
+package com.yadas.code.java.ds;
+
+import java.util.Stack;
+
+public class XStack<T> extends Stack<E>{
+	
+	
+
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@lyadasw7blr:1521:cdmx</property>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.username">hibernate35x</property>
+		<property name="hibernate.connection.password">hibernate35x</property>
+		<property name="hibernate.connection.pool_size">0</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property> <!-- create/update/validate/create-drop -->
+		<!-- "Import" the mapping resources here -->
+		
+		<mapping class="com.saurabh.dada.iq.impl.entities.Message" />
+		
+	</session-factory>
+	
+	<!-- 
+		delete from message;
+		commit;
+		insert into message values (1,'Hibernate session.get() and session.load() difference');
+		insert into message values (2,'Using Hibernate 3.5.4');
+		commit;
+
+		select * from message;
+	 -->
+
+</hibernate-configuration>

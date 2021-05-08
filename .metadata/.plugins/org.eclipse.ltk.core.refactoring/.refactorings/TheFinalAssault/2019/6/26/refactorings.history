@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;word&apos; in &apos;com.yadas.code.java.ds.XTrie.insert(...)&apos; to &apos;key&apos;&#x0D;&#x0A;- Original project: &apos;TheFinalAssault&apos;&#x0D;&#x0A;- Original element: &apos;com.yadas.code.java.ds.XTrie.insert(String).word&apos;&#x0D;&#x0A;- Renamed element: &apos;word&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;word&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.yadas.code.java.ds{XTrie.java[XTrie~insert~QString;@word!445!455!452!455!QString;!0!true" name="key" references="true" stamp="1561609777112" version="1.0"/>
+</session>

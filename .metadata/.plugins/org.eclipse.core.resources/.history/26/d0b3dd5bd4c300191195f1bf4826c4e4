@@ -1,0 +1,10 @@
+package com.saurabh.dada.iq.impl.companies.tesco;
+
+public class FindFirstIndexOfOneInAnArray {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

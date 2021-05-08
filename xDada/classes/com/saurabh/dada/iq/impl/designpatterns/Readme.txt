@@ -1,0 +1,7 @@
+Singleton
+ServiceLocator
+Factory
+AbstractFactory
+Strategy
+Iterator
+DAO

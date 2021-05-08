@@ -1,0 +1,7 @@
+Element				Description
+<definitions>	The root of the wsdl document which contains all the following tags.
+<types>			A container for data type definitions used by the web service
+<message>		A typed definition of the data being communicated
+<portType>		A set of operations supported by one or more endpoints
+<binding>		A protocol and data format specification for a particular port type
+<service>   	A location and name for stub classes created for Impl class of the WebService interface 

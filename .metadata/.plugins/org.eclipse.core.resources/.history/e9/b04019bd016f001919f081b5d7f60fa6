@@ -1,0 +1,67 @@
+package com.yadas.code.java.ds;
+
+
+public class BinarySearchTree_G4GExamples {
+	/**				50
+	 * 	   30						70
+	 * 20		40			    60		 80
+	 * 				45
+	 * 
+	 */
+	public static void main(String[] args) {
+		//basicOperations();
+		//convertToSumTree();
+	}
+
+	private static void diagonalTraversal() {
+		XBinarySearchTree<Integer> bst = new XBinarySearchTree<Integer>();
+		bst.insert(50);
+		bst.insert(30);
+		bst.insert(20);
+		bst.insert(40);
+		bst.insert(70);
+		bst.insert(60);
+		bst.insert(80);
+		bst.insert(45);
+		bst.levelOrderTraversalOrBFSLineByLine();
+		
+	}
+	
+	private static void convertToSumTree() {
+		XBinarySearchTree<Integer> bst = new XBinarySearchTree<Integer>();
+		bst.insert(50);
+		bst.insert(30);
+		bst.insert(20);
+		bst.insert(40);
+		bst.insert(70);
+		bst.insert(60);
+		bst.insert(80);
+		bst.insert(45);
+		bst.reverseLevelTraversalLineByLine();
+		System.exit(0);
+		bst.spiralFormTraversalLineByLine();
+		bst.zigZagTraversalLineByLine();
+		bst.levelOrderTraversalOrBFSLineByLine();
+		bst.inOrderTraversal();
+		bst.preOrderTraversal();
+		bst.postOrderTraversal();
+		bst.convertToSumTree();
+		bst.convertToSumOfInOrderSuccessorAndPredecessor();
+	}
+	
+	
+	private static void basicOperations() {
+		XBinarySearchTree<Integer> bst = new XBinarySearchTree<Integer>();
+		bst.insert(50);
+		bst.insert(30);
+		bst.insert(20);
+		bst.insert(40);
+		bst.insert(70);
+		bst.insert(60);
+		bst.insert(80);
+		bst.insert(45);
+		bst.inOrderTraversal();
+		bst.levelOrderTraversalOrBFSLineByLine();
+	}
+	
+}

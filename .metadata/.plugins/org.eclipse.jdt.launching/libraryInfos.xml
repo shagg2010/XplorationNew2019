@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="C:\Program Files\RedHat\java-12-openjdk-12.0.1-1" version="12.0.1"/>
+    <libraryInfo home="C:\InstalledSoftwares\Java\jdk1.8.0_201" version="1.8.0_201">
+        <bootpath>
+            <entry path="C:\InstalledSoftwares\Java\jdk1.8.0_201\jre\lib\resources.jar"/>
+            <entry path="C:\InstalledSoftwares\Java\jdk1.8.0_201\jre\lib\rt.jar"/>
+            <entry path="C:\InstalledSoftwares\Java\jdk1.8.0_201\jre\lib\sunrsasign.jar"/>
+            <entry path="C:\InstalledSoftwares\Java\jdk1.8.0_201\jre\lib\jsse.jar"/>
+            <entry path="C:\InstalledSoftwares\Java\jdk1.8.0_201\jre\lib\jce.jar"/>
+            <entry path="C:\InstalledSoftwares\Java\jdk1.8.0_201\jre\lib\charsets.jar"/>
+            <entry path="C:\InstalledSoftwares\Java\jdk1.8.0_201\jre\lib\jfr.jar"/>
+            <entry path="C:\InstalledSoftwares\Java\jdk1.8.0_201\jre\classes"/>
+        </bootpath>
+        <extensionDirs>
+            <entry path="C:\InstalledSoftwares\Java\jdk1.8.0_201\jre\lib\ext"/>
+            <entry path="C:\windows\Sun\Java\lib\ext"/>
+        </extensionDirs>
+        <endorsedDirs>
+            <entry path="C:\InstalledSoftwares\Java\jdk1.8.0_201\jre\lib\endorsed"/>
+        </endorsedDirs>
+    </libraryInfo>
+    <libraryInfo home="C:\InstalledSoftwares\Microsoft\jdk-11.0.11.9-hotspot" version="11.0.11"/>
+</libraryInfos>

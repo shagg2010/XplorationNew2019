@@ -1,0 +1,197 @@
+package com.yadas.code.java.ds;
+
+import java.util.HashMap;
+
+public class LinkedList_G4GExamples {
+	
+	private static XLinkedList<String> ll = null;
+	private static XLinkedList<String> ll1 = null;
+	private static XLinkedList<String> ll2 = null;
+	private static XLinkedList<String> ll3 = null;
+	private static XLinkedList<String> ll4 = null;
+	private static XLinkedList<String> ll5 = null;
+
+	public static void main(String[] args) {
+		//basicOperations();
+		//detectAndRemoveLoop();
+		//swapNodes();
+		//reverse();
+		//swapByGroupingSizeRecursively(2);
+	}
+	
+	
+	private static void swapByGroupingSizeRecursively(int groupingSize) {
+		//use stack of size 2 to swap pairwise nodes
+		ll4 = initializeLinkedList(9);
+		ll4.traverse();
+		
+		XLinkedList.Node<String> curr = ll4.getHeadNode();
+		pairwiseSwap(curr,2);
+		
+	}
+	private static XLinkedList.Node<String> swapByGroupingSize(XLinkedList.Node<String> curr, int groupingSize) {
+		if(groupingSize==0 || curr.getNext()==null)
+			return curr;
+		XLinkedList.Node<String> ret = swapByGroupingSize(curr.getNext(), groupingSize-1);
+		return ret; 
+	}
+	private static void reverse() {
+		ll3 = initializeLinkedList(10);
+		ll3.traverse();
+		reverse(ll3.getHeadNode(),ll3);
+		ll3.traverse();
+		ll3.traverseFrom(ll3.search("5"));
+	}
+	
+	private static XLinkedList.Node<String> reverse(XLinkedList.Node<String> curr, XLinkedList<String> ll) {
+		if(curr.getNext()==null)
+			return curr; //new head
+		XLinkedList.Node<String> ret = reverse(curr.getNext(),ll);
+		curr.getNext().setNext(curr);
+		curr.setNext(null);
+		ll.setHeadNode(ret);
+		ll.setTailNode(curr);
+		return ret;
+	}
+	
+	private static void swapNodes() {
+		//swap nodes without swapping data
+		ll2 = initializeLinkedList(10);
+		ll2.traverse();
+		XLinkedList.Node<String> curr = ll2.getHeadNode();
+		XLinkedList.Node<String> t1=ll2.search("4");
+		XLinkedList.Node<String> t2=ll2.search("3");
+		XLinkedList.Node<String> p1=null;
+		XLinkedList.Node<String> p2=null;
+		boolean setP1 = false;
+		boolean setP2 = false;
+		XLinkedList.Node<String> head = ll2.getHeadNode();
+		XLinkedList.Node<String> tail = ll2.getTailNode();
+		
+		while(curr!=null) {
+			if(curr.compare(t1)==0) {
+				setP1=true;
+			}
+			if(curr.compare(t2)==0) {
+				setP2=true;
+			}
+			if(!setP1)
+				p1=curr;
+			if(!setP2)
+				p2=curr;
+			curr=curr.getNext();
+		}
+		System.out.println("t1: " + t1);
+		System.out.println("t2: " + t2);
+		System.out.println("p1: " + p1);
+		System.out.println("p2: " + p2);
+
+		if(t1==head) {
+			//t1 is head
+			p2.setNext(t1);
+			ll2.setHeadNode(t2);
+			XLinkedList.Node<String> temp = t2.getNext();
+			t2.setNext(t1.getNext());
+			t1.setNext(temp);
+			ll2.setHeadNode(t2);
+		}
+		else if(t2==head) {
+			//t2 is head
+			p1.setNext(t2);
+			ll2.setHeadNode(t1);
+			XLinkedList.Node<String> temp = t1.getNext();
+			t1.setNext(t2.getNext());
+			t2.setNext(temp);
+			ll2.setHeadNode(t1);
+		}
+		else {
+			p1.setNext(t2);
+			p2.setNext(t1);
+			XLinkedList.Node<String> temp = t2.getNext();
+			t2.setNext(t1.getNext());
+			t1.setNext(temp);
+		}
+		if(t1==tail) {
+			ll2.setTailNode(t2);
+		}
+		if(t2==tail) {
+			ll2.setTailNode(t1);
+		}
+		ll2.traverse();
+		
+	}
+
+	private static void detectAndRemoveLoop() {
+		//Detect Loop
+		ll1 = initializeLinkedList(10);
+		XLinkedList.Node<String> node = ll1.search("10");
+		ll1.traverse();
+		node.setNext(ll1.search("5"));
+		//ll1.traverse();
+		//find loop size using tortoise and hare algo
+		//or detect using hashmap
+		int i = 1;
+		HashMap<XLinkedList.Node<String>, Integer> map = new HashMap<XLinkedList.Node<String>, Integer>();
+		XLinkedList.Node<String> curr = ll1.getHeadNode();
+		XLinkedList.Node<String> prev = null;
+		while(curr!=null) {
+			if(map.get(curr)!=null) {
+				System.out.println("Loop detected @ " + curr + " & " + prev);
+				System.out.println("Loop Size: " + (map.get(prev) - map.get(curr)));
+				break;
+			}
+			else {
+				map.put(curr, i++);
+			}
+			prev = curr;
+			curr = curr.getNext();
+		}
+		prev.setNext(null);
+		System.out.println(ll1);
+	}
+	
+	private static void basicOperations() {
+		// Basic Operations
+		
+		ll = initializeLinkedList(8);
+		ll.traverse();
+		System.out.println("Size: " + ll.size());
+
+		System.out.println("Search Result: " + ll.search("8"));
+		System.out.println("Search Result: " + ll.search("9"));
+		System.out.println("Search Result: " + ll.search("1"));
+
+		ll.remove("1");
+		ll.traverse();
+
+		ll.remove("4");
+		ll.traverse();
+
+		ll.remove("8");
+		ll.traverse();
+
+		System.out.println("Size: " + ll.size());
+
+		ll.removeAtIndex(0);
+		System.out.println(ll);
+		ll.removeAtIndex(3);
+		System.out.println(ll);
+		ll.removeAtIndex(1);
+		System.out.println(ll);
+		ll.removeAtIndex(0);
+		System.out.println(ll);
+		ll.removeAtIndex(0);
+		System.out.println(ll);
+
+		System.out.println("Size: " + ll.size());
+
+	}
+	
+	public static XLinkedList<String> initializeLinkedList(int noOfItems){
+		XLinkedList<String> ll = new XLinkedList<String>();
+		for(int i=1;i<=noOfItems;i++) {
+			ll.add(String.valueOf(i));
+		}
+		return ll;
+	}
+}

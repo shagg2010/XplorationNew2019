@@ -1,0 +1,7 @@
+INDEX VERSION 1.131
+C:\workbench\XplorationNew\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2433685307.index
+\HeadFirstServletsAndJSPs\src
+C:\workbench\XplorationNew\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\561914664.index
+\TS_SessionAffinity\src
+E:\workspace\XplorationNew\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\561914664.index
+\TS_SessionAffinity\src

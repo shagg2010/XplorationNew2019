@@ -1,0 +1,11 @@
+package com.saurabh.dada.iq.impl.companies.tesco;
+
+public class FindFirstIndexOfOneInAnArray {
+
+	public static int[] arr = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1}
+	public static void main(String[] args) {
+		
+
+	}
+
+}

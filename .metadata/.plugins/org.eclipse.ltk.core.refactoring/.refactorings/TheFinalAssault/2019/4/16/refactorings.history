@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;j&apos; in &apos;com.yadas.code.java.ds.Stacks_G4GExamples.stockSpanProblemMyVersion2()&apos; to &apos;defaultVal&apos;&#x0D;&#x0A;- Original project: &apos;TheFinalAssault&apos;&#x0D;&#x0A;- Original element: &apos;com.yadas.code.java.ds.Stacks_G4GExamples.stockSpanProblemMyVersion2().j&apos;&#x0D;&#x0A;- Renamed element: &apos;j&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;j&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.yadas.code.java.ds{Stacks_G4GExamples.java[Stacks_G4GExamples~stockSpanProblemMyVersion2@j!1195!1204!1199!1199!I!0!false" name="defaultVal" references="true" stamp="1555241867940" version="1.0"/>
+</session>

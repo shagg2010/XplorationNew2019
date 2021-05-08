@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;xDada/src/com/saurabh/dada/iq/impl/REST&apos;" deleteContents="false" description="Delete resource &apos;xDada/src/com/saurabh/dada/iq/impl/REST&apos;" element1="/xDada/src/com/saurabh/dada/iq/impl/REST" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1567451175311"/>
+</session>

@@ -1,0 +1,23 @@
+package com.yadas.code.java.ds;
+
+public class Stacks_G4GExamples {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+	private static void basicOperations() {
+		
+	}
+	
+	public static XStack<String> initializeStack(String itemsStr, String delimiter){
+		XStack<String> ll = new XStack<String>();
+		String[] itemArray = itemsStr.split(delimiter);
+		for(int i=0;i<itemArray.length;i++) {
+			if(!itemArray[i].equalsIgnoreCase("null"))
+				ll.add(itemArray[i]);
+		}
+		return ll;
+	}
+}

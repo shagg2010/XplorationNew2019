@@ -1,0 +1,10 @@
+package com.saurabh.dada.iq.impl.companies.softwareag;
+
+public class Print2DArrayWithSingleForLoop {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

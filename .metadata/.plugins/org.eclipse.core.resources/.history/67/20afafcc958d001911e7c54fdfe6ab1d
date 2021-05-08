@@ -1,0 +1,462 @@
+package com.yadas.code.java.ds;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
+
+import com.yadas.code.java.ds.XBinaryTree.Node;
+
+public class XBinarySearchTree<T extends Comparable<T>> {
+
+	private Node<T> root = null;
+	private boolean debug = false;
+	
+	public XBinarySearchTree() {
+		super();
+	}
+	public XBinarySearchTree(boolean debug) {
+		super();
+		this.debug = debug;
+	}
+	
+	public void largestNumberLessThanOrEqualToN(int n) {
+		largestNumberLessThanOrEqualToN(root, n);
+	}
+	
+	public void largestNumberLessThanOrEqualToN(Node<T> root,int n, int max) {
+		//search for n
+		if()
+	}
+	
+	public boolean hasDeadEnd() {
+		return hasDeadEnd(root, 1, 
+                Integer.MAX_VALUE);
+	}
+	
+	private boolean hasDeadEnd(Node<T> node, int min, int max) {
+		if(node==null)
+			return true;
+		int nodeData = (Integer) node.data;
+		//System.out.println("node: " + nodeData + ", min: " + min + ", max: " + max);
+		if (min==max) 
+            return false;
+		return (hasDeadEnd(node.left, min, nodeData-1) && hasDeadEnd(node.right, nodeData + 1, max));
+	}
+	
+	public void findLowestAncestor(T n1, T n2) {
+		if(n1.compareTo(n2)<=0)
+			findLowestAncestor(root, n1, n2);
+		else
+			findLowestAncestor(root, n2, n1);
+	}
+	private void findLowestAncestor(Node<T> node, T n1, T n2) {
+		if(node!=null) {
+			if(node.getData().compareTo(n1)>=0 && node.getData().compareTo(n2)<=0) {
+				System.out.println("LCA: " + node + "\tof: " + n1 + " & " + n2);
+				return;
+			}
+			if(node.getData().compareTo(n1)>0)
+				findLowestAncestor(node.left, n1, n2);
+			if(node.getData().compareTo(n2)<0)
+				findLowestAncestor(node.right, n1, n2);
+		}
+	}
+	
+	public void updateToMinHeapTree() {
+		updateToMinHeapTree(root);
+	}
+	private void updateToMinHeapTree(Node<T> node) {
+		List<T> list = inOrderTraversalAsList();
+		updateNodesLevelByLevel(root, list);
+	}
+	
+	private void updateNodesLevelByLevel(Node<T> node, List<T> list) {
+		Queue<Node<T>> queue = new LinkedList<Node<T>>();
+		queue.add(node);
+		int i = 0;
+		while (!queue.isEmpty()) {
+			Node<T> curr = queue.poll();
+			curr.setData(list.get(i));
+			i++;
+			if (curr.left != null)
+				queue.add(curr.left);
+			if (curr.right != null)
+				queue.add(curr.right);
+		}
+	}
+	
+	public void updateToSumOfSmallerKeys() {
+		List<Integer> sum = new ArrayList<>(1);
+		sum.add(new Integer(0));
+		updateToSumOfSmallerKeys(root, sum);
+	}
+	
+	private void updateToSumOfSmallerKeys(Node<T> node, List<Integer> sum) {
+		if(node==null)
+			return;		
+		updateToSumOfSmallerKeys(node.left, sum);
+		sum.set(0, sum.get(0) + Integer.valueOf(node.data.toString()));
+		Object x = sum.get(0) - Integer.valueOf(node.getData().toString());		
+		node.setData((T)x);
+		updateToSumOfSmallerKeys(node.right, sum);
+	}
+	
+	public void updateToGreaterSumTree() {
+		List<Integer> sum = new ArrayList<>(1);
+		sum.add(new Integer(0));
+		updateToGreaterSumTree(root, sum);
+	}
+	
+	private void updateToGreaterSumTree(Node<T> node, List<Integer> sum) {
+		if(node==null) {
+			return;
+		}
+		updateToGreaterSumTree(node.right,sum);
+		sum.set(0, sum.get(0) + Integer.valueOf(node.data.toString()));
+		//System.out.print(node.data + ",\t" + sum + ",\t");
+		Object x = sum.get(0) - Integer.valueOf(node.getData().toString());		
+		node.setData((T)x);
+		//System.out.print(node.data + "\n");
+		updateToGreaterSumTree(node.left,sum);
+	}
+	
+	public void reverseLevelTraversalLineByLine() {
+		System.out.println("Reverse Level Traversal: ");
+		if(root!=null)
+			reverseLevelTraversalLineByLine(root);
+		System.out.println();
+	}
+	private void reverseLevelTraversalLineByLine(Node<T> node) {
+		Queue<Node<T>> queue = new LinkedList<Node<T>>();
+		queue.add(node);
+		queue.add(null);
+		//Queue<Node<T>> q1 = new LinkedList<>();
+		Stack<Node<T>> stack = new Stack<>();
+		while(!queue.isEmpty()) {
+			Node<T> curr = queue.poll();
+			if(curr==null) {
+				if(!queue.isEmpty()) {
+					queue.add(null);					
+					stack.add(null);
+					System.out.println();
+				}
+			}
+			else {
+				stack.add(curr);
+				if(curr.left!=null)
+					queue.add(curr.left);
+				if(curr.right!=null)
+					queue.add(curr.right);
+			}
+		}
+		Stack<Node<T>> s1 = new Stack<>();
+		while(!stack.isEmpty()) {
+			Node<T> item = stack.pop();
+			if(item!=null) {
+				//System.out.print(item.data + "~\t");
+				s1.add(item);
+			}
+			else {
+				while(!s1.isEmpty()) {
+					System.out.print(s1.pop().data + "~\t");
+				}
+				s1.clear();
+				System.out.println();
+			}
+		}
+		while(!s1.isEmpty()) {
+			System.out.print(s1.pop().data + "~\t");
+		}
+		s1.clear();
+	}
+	
+	public void spiralFormTraversalLineByLine() {
+		System.out.println("Spiral Traversal: ");
+		if(root!=null)
+			spiralFormTraversalLineByLine(root);
+		System.out.println();
+	}
+	private void spiralFormTraversalLineByLine(Node<T> node) {
+		Queue<Node<T>> queue = new LinkedList<Node<T>>();
+		queue.add(node);
+		queue.add(null);
+		boolean oddLevel = true;
+		Stack<Node<T>> stack = new Stack<XBinarySearchTree.Node<T>>();
+		while (!queue.isEmpty()) {
+			Node<T> curr = queue.poll();
+			if(curr==null) {
+				if(!queue.isEmpty()) {
+					queue.add(null);
+					if(oddLevel) {
+						while(!stack.isEmpty()) {
+							System.out.print(stack.pop().data + "~\t");
+						}
+						System.out.println();
+						oddLevel=false;
+					}
+					else {
+						oddLevel=true;
+					}
+					System.out.println();
+				}				
+			}
+			else {
+				if(oddLevel)
+					stack.add(curr);
+				else
+					System.out.print(curr.data + "\t");
+				if(curr.left!=null)
+					queue.add(curr.left);
+				if(curr.right!=null)
+					queue.add(curr.right);
+			}
+		}
+		while(!stack.isEmpty()) {
+			System.out.print(stack.pop().data + "~\t");
+		}
+		System.out.println();
+	}
+	
+	
+	public void zigZagTraversalLineByLine() {
+		System.out.println("ZigZag Traversal: ");
+		if(root!=null)
+			zigZagTraversalLineByLine(root);
+		System.out.println();
+	}
+	
+	private void zigZagTraversalLineByLine(Node<T> node) {
+		Queue<Node<T>> queue = new LinkedList<Node<T>>();
+		queue.add(node);
+		queue.add(null);
+		boolean useStack = false;
+		Stack<Node<T>> stack = new Stack<XBinarySearchTree.Node<T>>();
+		while (!queue.isEmpty()) {
+			Node<T> curr = queue.poll();
+			if(curr==null) {
+				if(!queue.isEmpty()) {
+					queue.add(null);
+					if(useStack==false) 
+						useStack = true;
+					else {
+						useStack = false;
+						while(!stack.isEmpty()) {
+							System.out.print(stack.pop().data + "\t");
+						}
+					}
+					System.out.println();
+				}
+			}
+			else {
+				if(useStack==true)
+					stack.add(curr);
+				else
+					System.out.print(curr.data + "\t");
+				if(curr.left!=null)
+					queue.add(curr.left);
+				if(curr.right!=null)
+					queue.add(curr.right);
+			}
+		}
+		while(!stack.isEmpty()) {
+			System.out.print(stack.pop().data + "~\t");
+		}
+		System.out.println();
+	}
+	
+	public void convertToSumOfInOrderSuccessorAndPredecessor() {
+		convertToSumOfInOrderSuccessorAndPredecessor(root);
+	}
+	private void convertToSumOfInOrderSuccessorAndPredecessor(Node<T> node) {
+		System.out.println(inOrderTraversalNonRecursive(root));
+	}
+	private List<T> inOrderTraversalNonRecursive(Node<T> node) {
+		List<T> list = new ArrayList<>();
+		Stack<Node<T>> stack = new Stack<>();
+		Node<T> curr = root;
+		while(!stack.isEmpty() || curr!=null) {
+			while(curr!=null) {
+				stack.push(curr);
+				curr=curr.left;
+			}
+			curr = stack.pop();
+			list.add(curr.data);
+			curr=curr.right;
+		}
+		return list;
+	}
+	
+	public void convertToSumTree() {
+		System.out.print("SumOrder Traversal:\t");
+		convertToSumTree(root, 0);
+		System.out.println();
+	}
+	private int convertToSumTree(Node<T> node, int sum) {
+		if(node!=null) {
+			sum = convertToSumTree(node.left, sum);
+			sum = sum + convertToSumTree(node.right, sum);
+			sum = sum + Integer.valueOf(node.data.toString());
+			System.out.print(node.data + " [" + sum  + "]\t");
+			return sum;
+		}
+		else
+			return 0;
+	}
+	/*
+	 * private int sumOfLeftSubTreeAndRightSubTree(Node<T> node, int sum) {
+	 * if(node!=null) { sumOfTreeNode(node.left, sum); sumOfTreeNode(node.right,
+	 * sum); sum = sum + Integer.valueOf(node.data.toString()); } return sum; }
+	 */
+	
+	public void insert(T data) {
+		if(root==null) {
+			root = new Node<>(data);
+		}
+		else {
+			insert(root, data);
+		}
+	}
+	public void insert(Node<T> node,T data) {
+		if(data.compareTo(node.data)<0) {
+			//new node to be added is lesser than current node
+			if(node.left==null)
+				node.left = new Node<>(data);
+			else
+				insert(node.left, data);
+		}
+		else {
+			if(node.right==null)
+				node.right = new Node<>(data);
+			else
+				insert(node.right, data);
+		}
+	}
+	
+	public void levelOrderTraversalOrBFSLineByLine() {
+		System.out.println("Level Order Traversal: ");
+		if(root!=null)
+			breadthFirstSearchLineByLine(root);
+		System.out.println();
+	}
+	
+	private void breadthFirstSearchLineByLine(Node<T> node) {
+		Queue<Node<T>> queue = new LinkedList<Node<T>>();
+		queue.add(node);
+		queue.add(null);
+		while (!queue.isEmpty()) {
+			Node<T> curr = queue.poll();
+			if (curr == null) {
+				if (!queue.isEmpty()) {
+					System.out.println();
+					queue.add(null);
+				}
+			} 
+			else {
+					System.out.print(curr.data + "\t");
+					if (curr.left != null)
+						queue.add(curr.left);
+					if (curr.right != null)
+						queue.add(curr.right);
+			}
+		}
+	}
+	public List<T> inOrderTraversalAsList() {
+		List<T> list = new ArrayList<>();
+		System.out.print("Inoder Traversal: \t");
+		inOrderTraversal(root, list);
+		System.out.println();
+		return list;
+	}
+	private List<T> inOrderTraversal(Node<T> node, List<T> list) {
+		if(node!=null) {
+			inOrderTraversal(node.left, list);
+			System.out.print(node);
+			list.add(node.data);
+			inOrderTraversal(node.right, list);
+		}
+		return list;
+	}
+	public void inOrderTraversal() {
+		System.out.print("Inoder Traversal: \t");
+		inOrderTraversal(root);
+		System.out.println();
+	}
+	public void preOrderTraversal() {
+		System.out.print("Preorder Traversal: \t");
+		preOrderTraversal(root);
+		System.out.println();
+	}
+	public void postOrderTraversal() {
+		System.out.print("Postorder Traversal: \t");
+		postOrderTraversal(root);
+		System.out.println();
+	}
+	private void inOrderTraversal(Node<T> node) {
+		if(node!=null) {
+			inOrderTraversal(node.left);
+			System.out.print(node);
+			inOrderTraversal(node.right);
+		}
+	}
+	private void preOrderTraversal(Node<T> node) {
+		if(node!=null) {
+			System.out.print(node);
+			preOrderTraversal(node.left);
+			preOrderTraversal(node.right);
+		}
+	}
+	private void postOrderTraversal(Node<T> node) {
+		if(node!=null) {
+			postOrderTraversal(node.left);
+			postOrderTraversal(node.right);
+			System.out.print(node);
+		}
+	}
+	
+	public static class Node<T extends Comparable<T>>{
+		private Node<T> left = null;
+		private Node<T> right = null;
+		private T data;
+		private boolean debug = false;
+		
+		public Node() {
+			super();
+		}
+		public Node(T data) {
+			super();
+			this.data = data;
+		}
+		public Node(T data, boolean debug) {
+			super();
+			this.data = data;
+			this.debug = debug;
+		}
+		public Node<T> getLeft() {
+			return left;
+		}
+		public void setLeft(Node<T> left) {
+			this.left = left;
+		}
+		public Node<T> getRight() {
+			return right;
+		}
+		public void setRight(Node<T> right) {
+			this.right = right;
+		}
+		public T getData() {
+			return data;
+		}
+		public void setData(T data) {
+			this.data = data;
+		}
+		@Override
+		public String toString() {
+			if(debug)
+				return "data: " + data + "@" + this.hashCode() + "";
+			else
+				return "" + data + "\t";
+		}
+	}
+}

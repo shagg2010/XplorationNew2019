@@ -1,0 +1,217 @@
+package com.yadas.code.java.ds;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class XBinaryTree<T extends Comparable<T>> {
+	
+	private Node<T> root = null;
+	
+	public boolean isSymmetric() {
+		return isSymmetric(root);
+	}
+	private boolean isSymmetric(Node<T> node) {
+		if(node!=null) {
+			
+		}
+	}
+	private boolean isDataSame(Node<T> n1, Node<T> n2) {
+		
+	}
+	
+	public void mirror() {
+		mirror(root);
+	}
+	private void mirror(Node<T> node) {
+		if(node==null)
+			return;
+		else {
+			swapLeftAndRightNodes(node);
+			mirror(node.left);
+			mirror(node.right);
+		}
+	}
+	public void swapLeftAndRightNodes(Node<T> node) {
+		if(node!=null) {
+			Node<T> temp = node.left;
+			node.left = node.right;
+			node.right = temp;
+		}
+	}
+	
+	public boolean isMirror() {
+		return isMirror(root);
+	}
+	private boolean isMirror(Node<T> node) {
+		if(node==null)
+			return true;
+		if(isStructureSame(node.left, node.right))
+			return true;
+		else
+			return false;
+	}
+	private boolean isStructureSame(Node<T> n1, Node<T> n2) {
+		if(n1==null && n2==null)
+			return true;
+		if(n1!=null && n2!=null && isStructureSame(n1.left, n2.right) && isStructureSame(n1.right, n2.left)) {
+			return true;
+		}
+		else
+			return false;
+	}
+	public boolean isContinuousTree() {
+		return isContinuous(root);
+	}
+	private boolean isContinuous(Node<T> node) {
+		if(node.left!=null && node.right==null) {
+			return true;
+		}
+		if(node.left==null) {
+			return (Math.abs(Integer.parseInt(node.data.toString())-Integer.parseInt(node.right.data.toString())) == 1)&& isContinuous(node.right);
+		}
+		if(node.right==null) {
+			return (Math.abs(Integer.parseInt(node.data.toString())-Integer.parseInt(node.left.data.toString())) == 1)&& isContinuous(node.left);
+		}
+		return (Math.abs(Integer.parseInt(node.data.toString())-Integer.parseInt(node.left.data.toString())) == 1) && (Math.abs(Integer.parseInt(node.data.toString())-Integer.parseInt(node.right.data.toString())) == 1);
+	}
+	
+	public void insert(T data) {
+		if(root==null) {
+			root = new Node<>(data);
+		}
+		else {
+			//do level order traversal and find the correct place to insert
+			Queue<Node<T>> q = new LinkedList<>();
+			q.add(root);
+			while(!q.isEmpty()) {
+				Node<T> t = q.poll();
+				if(t.left==null) {
+					t.left = new Node<T>(data);
+					break;
+				}
+				else
+					q.add(t.left);
+				if(t.right==null) {
+					t.right = new Node<T>(data);
+					break;
+				}
+				else
+					q.add(t.right);
+			}
+		}
+	}
+	
+	public void insert2(T data) {
+		root = insert2(root, data);
+	}
+	private Node<T> insert2(Node<T> node, T data) {
+		if(node==null)
+			node = new Node<>(data);
+		else {
+			if(node.left==null)
+				node.left=insert2(node.left, data);
+			else
+				node.right=insert2(node.right, data);
+		}
+		return node;
+	}
+	public void levelOrderTraversalOrBFSLineByLine() {
+		if(root!=null)
+			breadthFirstSearchLineByLine(root);
+		System.out.println();
+	}
+	
+	private void breadthFirstSearchLineByLine(Node<T> node) {
+		Queue<Node<T>> queue = new LinkedList<Node<T>>();
+		queue.add(node);
+		queue.add(null);
+		while (!queue.isEmpty()) {
+			Node<T> curr = queue.poll();
+			if (curr == null) {
+				if (!queue.isEmpty()) {
+					System.out.println();
+					queue.add(null);
+				}
+			} 
+			else {
+					System.out.print(curr.data + "\t");
+					if (curr.left != null)
+						queue.add(curr.left);
+					if (curr.right != null)
+						queue.add(curr.right);
+			}
+		}
+	}
+	
+	public void inOrderTraversal() {
+		System.out.print("\nInoder Traversal: \t");
+		inOrderTraversal(root);
+	}
+	public void preOrderTraversal() {
+		System.out.print("\nPreorder Traversal: \t");
+		preOrderTraversal(root);
+	}
+	public void postOrderTraversal() {
+		System.out.print("\nPostorder Traversal: \t");
+		postOrderTraversal(root);
+	}
+	private void inOrderTraversal(Node<T> node) {
+		if(node!=null) {
+			inOrderTraversal(node.left);
+			System.out.print(node);
+			inOrderTraversal(node.right);
+		}
+	}
+	private void preOrderTraversal(Node<T> node) {
+		if(node!=null) {
+			System.out.print(node);
+			preOrderTraversal(node.left);
+			preOrderTraversal(node.right);
+		}
+	}
+	private void postOrderTraversal(Node<T> node) {
+		if(node!=null) {
+			postOrderTraversal(node.left);
+			postOrderTraversal(node.right);
+			System.out.print(node);
+		}
+	}
+	
+	public static class Node<T extends Comparable<T>>{
+		private Node<T> left = null;
+		private Node<T> right = null;
+		private T data;
+		
+		public Node() {
+			super();
+		}
+		public Node(T data) {
+			super();
+			this.data = data;
+		}
+		
+		public Node<T> getLeft() {
+			return left;
+		}
+		public void setLeft(Node<T> left) {
+			this.left = left;
+		}
+		public Node<T> getRight() {
+			return right;
+		}
+		public void setRight(Node<T> right) {
+			this.right = right;
+		}
+		public T getData() {
+			return data;
+		}
+		public void setData(T data) {
+			this.data = data;
+		}
+		@Override
+		public String toString() {
+			return "" + data + "\t";
+		}
+	}
+
+}

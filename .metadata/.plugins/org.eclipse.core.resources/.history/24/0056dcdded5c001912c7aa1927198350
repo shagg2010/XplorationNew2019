@@ -1,0 +1,11 @@
+package com.yadas.code.java.ds;
+
+import java.util.Stack;
+
+public class XStack<T> extends Stack<E>{
+
+	private static final long serialVersionUID = 738909371233751855L;
+	
+	
+
+}

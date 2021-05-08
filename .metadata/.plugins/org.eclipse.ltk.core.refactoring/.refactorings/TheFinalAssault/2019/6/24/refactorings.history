@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;bt5&apos; in &apos;com.yadas.code.java.ds.BinarySearchTree_G4GExamples.findLargestNumberLessThanOrEqualToN()&apos; to &apos;bst5&apos;&#x0D;&#x0A;- Original project: &apos;TheFinalAssault&apos;&#x0D;&#x0A;- Original element: &apos;com.yadas.code.java.ds.BinarySearchTree_G4GExamples.findLargestNumberLessThanOrEqualToN().bt5&apos;&#x0D;&#x0A;- Renamed element: &apos;bt5&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;bt5&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.yadas.code.java.ds{BinarySearchTree_G4GExamples.java[BinarySearchTree_G4GExamples~findLargestNumberLessThanOrEqualToN@bt5!529!592!556!558!QXBinarySearchTree\&lt;QInteger;&gt;;!0!false" name="bst5" references="true" stamp="1560401624899" version="1.0"/>
+</session>

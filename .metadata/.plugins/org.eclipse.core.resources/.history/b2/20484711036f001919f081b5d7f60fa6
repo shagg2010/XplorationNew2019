@@ -1,0 +1,109 @@
+package com.yadas.code.java.ds;
+
+public class BinaryTree_G4GExamples {
+
+	public static void main(String[] args) {
+		//basicOperations();
+		//otheOperations1();
+		otheOperations2();
+	}
+	
+	private static void otheOperations2() {
+		//diagonalTraversal
+		XBinaryTree<String> bt5 = new XBinaryTree<>(false);
+		bt5.insert("\t\t\t8");
+		bt5.insert("\t\t\t3");
+		bt5.insert("\t\t10");
+		bt5.insert("\t\t11");
+		bt5.insert("\t5");
+		bt5.insert("7");
+		bt5.insert("\t2");
+		bt5.insert("\t  1");
+		bt5.insert("\t9");
+		bt5.insert("\t4");
+		bt5.insert("6");
+		bt5.insert("12");
+		bt5.insert("13");
+		bt5.insert("14");
+		bt5.insert("15");
+		bt5.levelOrderTraversalOrBFSLineByLine();
+	}
+	
+	private static void otheOperations1() {
+		//https://www.geeksforgeeks.org/reverse-alternate-levels-binary-tree/
+		XBinaryTree<Character> bt5 = new XBinaryTree<>(true);
+		bt5.insert('a');
+		bt5.insert('b');
+		bt5.insert('c');
+		bt5.insert('d');
+		bt5.insert('e');
+		bt5.insert('f');
+		bt5.insert('g');
+		bt5.insert('h');
+		bt5.insert('i');
+		bt5.insert('j');
+		bt5.insert('k');
+		bt5.insert('l');
+		bt5.insert('m');
+		bt5.insert('n');
+		bt5.insert('o');
+		bt5.levelOrderTraversalOrBFSLineByLine();
+		bt5.reverseAlternativeLevels();
+		bt5.levelOrderTraversalOrBFSLineByLine();
+	}
+
+	private static void basicOperations() {
+		XBinaryTree<String> bt1 = new XBinaryTree<String>();
+		bt1.insert("6");
+		bt1.insert("24");
+		bt1.insert("19");
+		bt1.insert("94");
+		bt1.insert("5");
+		bt1.insert("1");
+		bt1.insert("10");
+		bt1.insert("3");
+		bt1.insert("8");
+		
+		bt1.postOrderTraversal();
+		bt1.preOrderTraversal();
+		bt1.inOrderTraversal();
+		bt1.levelOrderTraversalOrBFSLineByLine();
+		
+		XBinaryTree<Integer> bt2 = new XBinaryTree<Integer>();
+		bt2.insert(3);
+		bt2.insert(2);
+		bt2.insert(4);
+		bt2.insert(1);
+		bt2.insert(3);
+		bt2.insert(5);
+		bt2.levelOrderTraversalOrBFSLineByLine();
+		System.out.println("\nIs Continuous Tree: " + bt2.isContinuousTree());
+		
+		XBinaryTree<Integer> bt3 = new XBinaryTree<Integer>();
+		bt3.insert(3);
+		bt3.insert(2);
+		bt3.insert(4);
+		bt3.insert(1);
+		bt3.insert(3);
+		bt3.insert(5);
+		bt3.insert(8);
+		bt3.levelOrderTraversalOrBFSLineByLine();
+		System.out.println("\nIs Mirror Tree: " + bt3.isMirror());
+		bt3.mirror();
+		System.out.println("Mirror Tree: ");bt3.levelOrderTraversalOrBFSLineByLine();
+		
+		XBinaryTree<Integer> bt4 = new XBinaryTree<Integer>(true);
+		bt4.insert(1);
+		bt4.insert(2);
+		bt4.insert(2);
+		bt4.insert(3);
+		bt4.insert(4);
+		bt4.insert(4);
+		bt4.insert(3);
+		bt4.levelOrderTraversalOrBFSLineByLine();
+		System.out.println("\nIs Symmetric Tree: " + bt4.isSymmetric());
+		
+		
+		
+	}
+}

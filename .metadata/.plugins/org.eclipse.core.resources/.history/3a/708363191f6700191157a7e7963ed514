@@ -1,0 +1,26 @@
+package com.yadas.code.java.ds;
+
+public class BinaryTree_G4GExamples {
+
+	public static void main(String[] args) {
+		basicOperations();
+		
+	}
+
+	private static void basicOperations() {
+		XBinaryTree<String> bt1 = new XBinaryTree<String>();
+		bt1.insert("6");
+		bt1.insert("24");
+		bt1.insert("19");
+		bt1.insert("94");
+		bt1.insert("5");
+		bt1.insert("1");
+		bt1.insert("10");
+		bt1.insert("3");
+		bt1.insert("8");
+		
+		bt1.postOrderTraversal();
+		bt1.preOrderTraversal();
+		bt1.inOrderTraversal();
+	}
+}

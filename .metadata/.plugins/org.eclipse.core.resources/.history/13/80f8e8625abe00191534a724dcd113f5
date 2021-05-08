@@ -1,0 +1,73 @@
+package com.saurabh.dada.iq.impl;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Concurrent_AtomicInteger {
+
+	public static void main(String[] args) {
+		 final Counter counter = new Counter();
+		 
+		try{
+			ArrayList<MyThread> threads = new ArrayList<MyThread>();
+		      for (int x = 0; x < 1000; x++) {
+		         threads.add(new MyThread(counter));
+		      }
+		 
+		      // start all of the threads
+		      Iterator<? extends Runnable> i1 = threads.iterator();
+		      while (i1.hasNext()) {
+		         MyThread mt = (MyThread) i1.next();
+		         mt.start();
+		      }
+		 
+		      // wait for all the threads to finish
+		      Iterator<? extends Runnable> i2 = threads.iterator();
+		      while (i2.hasNext()) {
+		         MyThread mt = (MyThread) i2.next();
+		         mt.join();
+		      }
+		 
+		      System.out.println("Count: " + counter.getCount() + ", i: " + counter.getICount());
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+	}
+
+}
+
+class MyThread extends Thread {
+	Counter counter;
+
+	MyThread(Counter counter) {
+		this.counter = counter;
+	}
+
+	public void run() {
+		for (int x = 0; x < 1000; x++) {
+			counter.incrementCount();
+		}
+	}
+}
+
+// class that uses AtomicInteger for counter
+class Counter {
+
+	private AtomicInteger count = new AtomicInteger(0);
+	private int i = 0;
+
+	public void incrementCount() {
+		i++;
+		count.incrementAndGet();
+	}
+
+	public int getICount() {
+		return i;
+	}
+	public int getCount() {
+		return count.get();
+	}
+}

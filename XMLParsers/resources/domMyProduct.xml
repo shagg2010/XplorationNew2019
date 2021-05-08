@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MyProduct>
+  <Product>
+    <ProductId>123</ProductId>
+    <Description>Laptop</Description>
+    <Price>$870</Price>
+    <Quantity>1</Quantity>
+    <Size>1</Size>
+    <Total>$870</Total>
+  </Product>
+  <Product>
+    <ProductId>124</ProductId>
+   <Description>Monitor</Description>
+   <Price>$200</Price>
+   <Quantity>3</Quantity>
+   <Size>4</Size>
+   <Total>$600</Total>
+   </Product>
+</MyProduct>
